@@ -33,7 +33,7 @@ export default function SubscriptionPage() {
 
                 <Link
                     href="/admin/subscriptions/create"
-                    className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+                    className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
                 >
                     + Add Plan
                 </Link>

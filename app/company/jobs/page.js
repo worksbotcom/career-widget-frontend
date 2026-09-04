@@ -98,7 +98,7 @@ export default function JobsPage() {
 
                 <Link
                     href="/company/jobs/create"
-                    className="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700"
+                    className="flex items-center gap-1.5 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700"
                 >
                     <Plus size={16} />
                     New Job

@@ -117,7 +117,7 @@ export default function CompanyProfileForm({ company: initialCompany = {}, onPro
                     <textarea
                         rows={5}
                         placeholder="What makes your company a great place to work?"
-                        className="w-full rounded-lg border border-gray-300 p-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                        className="w-full rounded-lg border border-gray-300 p-3 text-sm outline-none transition focus:border-red-500 focus:ring-1 focus:ring-red-500"
                         {...register("description")}
                     />
                 </FormSection>

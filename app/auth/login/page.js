@@ -82,7 +82,7 @@ export default function LoginPage() {
 
                 <button
                     disabled={loading}
-                    className="w-full bg-black text-white py-3 rounded-lg"
+                    className="w-full bg-red-600 text-white py-3 rounded-lg"
                 >
                     {loading ? "Logging in..." : "Login"}
                 </button>

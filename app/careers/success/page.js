@@ -48,7 +48,7 @@ export default function ApplicationSuccessPage() {
 
                         href="/careers"
 
-                        className="rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white hover:bg-indigo-700"
+                        className="rounded-lg bg-red-600 px-6 py-3 font-medium text-white hover:bg-red-700"
 
                     >
 

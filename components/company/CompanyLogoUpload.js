@@ -83,7 +83,7 @@ export default function CompanyLogoUpload({ logo, onUploaded }) {
                 <button
                     type="button"
                     onClick={() => inputRef.current.click()}
-                    className="mt-4 flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-700"
+                    className="mt-4 flex items-center gap-1.5 text-sm font-medium text-red-600 hover:text-red-700"
                 >
                     <Upload size={15} />
                     Choose Logo

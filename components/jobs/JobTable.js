@@ -212,7 +212,7 @@ export default function JobTable({
 
                                             href={`/company/jobs/edit/${job._id}`}
 
-                                            className="rounded bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700"
+                                            className="rounded bg-red-600 px-3 py-1 text-sm text-white hover:bg-red-700"
 
                                         >
 
@@ -268,7 +268,7 @@ export default function JobTable({
 
                                                     onClick={() => onArchive(job._id)}
 
-                                                    className="rounded bg-gray-700 px-3 py-1 text-sm text-white hover:bg-black"
+                                                    className="rounded bg-red-600 px-3 py-1 text-sm text-white hover:bg-red-700"
 
                                                 >
 

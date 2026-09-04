@@ -184,7 +184,7 @@ export default function TeamMemberTable({
 
                                             href={`/company/team-members/edit/${member._id}`}
 
-                                            className="rounded bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700"
+                                            className="rounded bg-red-600 px-3 py-1 text-sm text-white hover:bg-red-700"
 
                                         >
 

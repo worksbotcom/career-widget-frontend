@@ -1,189 +1,69 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
+import { Briefcase, CalendarDays, GraduationCap, MapPin } from "lucide-react";
 
-import JobCard from "@/components/careers/JobCard";
-import JobFilters from "@/components/careers/JobFilters";
+import { getPublishedJob } from "@/services/widget.service";
 
-import { getPublishedJobs } from "@/services/widget.service";
+export default function JobDetailsPage() {
 
-export default function CareersPage() {
+    const { id } = useParams();
 
-    const { companyId } = useParams();
-
-    const [jobs, setJobs] = useState([]);
-    const [departments, setDepartments] = useState([]);
-    const [locations, setLocations] = useState([]);
+    const [job, setJob] = useState(null);
     const [loading, setLoading] = useState(true);
-
-    const [filters, setFilters] = useState({
-        search: "",
-        department: "",
-        location: "",
-        employmentType: "",
-        workMode: ""
-    });
+    const [error, setError] = useState(false);
 
     useEffect(() => {
-
-        if (companyId) {
-            fetchJobs();
+        if (id) {
+            getPublishedJob(null, id)
+                .then((response) => setJob(response.data.data))
+                .catch((requestError) => {
+                    console.error(requestError);
+                    setError(true);
+                })
+                .finally(() => setLoading(false));
         }
-
-    }, [companyId]);
-
-    const fetchJobs = async () => {
-
-        try {
-
-            const res = await getPublishedJobs(companyId);
-
-            const jobs = res.data.data || [];
-
-            setJobs(jobs);
-
-            // Build department list from jobs
-            const departmentMap = new Map();
-
-            jobs.forEach(job => {
-                if (job.departmentId) {
-                    departmentMap.set(
-                        job.departmentId._id,
-                        job.departmentId
-                    );
-                }
-            });
-
-            setDepartments([...departmentMap.values()]);
-
-            // Build location list from jobs
-            const locationMap = new Map();
-
-            jobs.forEach(job => {
-                if (job.locationId) {
-                    locationMap.set(
-                        job.locationId._id,
-                        job.locationId
-                    );
-                }
-            });
-
-            setLocations([...locationMap.values()]);
-
-        }
-
-        catch (error) {
-
-            console.error(error);
-
-        }
-
-        finally {
-
-            setLoading(false);
-
-        }
-
-    };
-
-    const filteredJobs = useMemo(() => {
-
-        return jobs.filter(job => {
-
-            const matchesSearch =
-                filters.search === "" ||
-                job.title.toLowerCase().includes(filters.search.toLowerCase());
-
-            const matchesDepartment =
-                filters.department === "" ||
-                job.departmentId?._id === filters.department;
-
-            const matchesLocation =
-                filters.location === "" ||
-                job.locationId?._id === filters.location;
-
-            const matchesEmploymentType =
-                filters.employmentType === "" ||
-                job.employmentType === filters.employmentType;
-
-            return (
-                matchesSearch &&
-                matchesDepartment &&
-                matchesLocation &&
-                matchesEmploymentType
-            );
-
-        });
-
-    }, [jobs, filters]);
+    }, [id]);
 
     if (loading) {
 
         return (
             <div className="flex h-screen items-center justify-center">
-                Loading Jobs...
+                Loading job details...
             </div>
         );
 
     }
 
+    if (error || !job) {
+        return <div className="mx-auto max-w-2xl py-24 text-center">This job could not be found.</div>;
+    }
+
     return (
-
-        <div className="mx-auto max-w-7xl px-6 py-10">
-
-            <div className="mb-10 text-center">
-
-                <h1 className="text-4xl font-bold">
-                    Careers
-                </h1>
-
-                <p className="mt-3 text-gray-500">
-                    Find your next opportunity.
-                </p>
-
+        <main className="mx-auto max-w-4xl px-6 py-10">
+            <Link href="/careers" className="text-sm font-medium text-red-600 hover:text-red-700">
+                Back to all jobs
+            </Link>
+            <div className="mt-6 rounded-xl border bg-white p-8 shadow-sm">
+                <p className="text-sm font-medium text-gray-500">{job.companyId?.companyName}</p>
+                <h1 className="mt-2 text-4xl font-bold text-gray-900">{job.title}</h1>
+                <div className="mt-5 grid gap-3 text-sm text-gray-600 sm:grid-cols-3">
+                    <span><Briefcase className="mr-2 inline" size={16} />{job.employmentType}</span>
+                    <span><MapPin className="mr-2 inline" size={16} />{job.locationId?.name || "Remote"}</span>
+                    <span><GraduationCap className="mr-2 inline" size={16} />{job.experienceLevel}</span>
+                </div>
+                <Link href={`/careers/apply/${job._id}?companyId=${job.companyId?.companyId || ""}`} className="mt-8 inline-flex rounded-lg bg-red-600 px-6 py-3 font-semibold text-white hover:bg-red-700">
+                    Apply now
+                </Link>
             </div>
-
-            <JobFilters
-                filters={filters}
-                departments={departments}
-                locations={locations}
-                onChange={setFilters}
-            />
-
-            {
-                filteredJobs.length === 0 ? (
-
-                    <div className="rounded-xl border bg-white py-16 text-center">
-
-                        <h2 className="text-2xl font-semibold">
-                            No Jobs Found
-                        </h2>
-
-                    </div>
-
-                ) : (
-
-                    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-
-                        {
-                            filteredJobs.map(job => (
-
-                                <JobCard
-                                    key={job._id}
-                                    job={job}
-                                />
-
-                            ))
-                        }
-
-                    </div>
-
-                )
-            }
-
-        </div>
-
+            <section className="mt-6 space-y-6 rounded-xl border bg-white p-8 shadow-sm">
+                <div><h2 className="text-xl font-semibold">Job description</h2><p className="mt-2 whitespace-pre-line text-gray-600">{job.description}</p></div>
+                {job.requirements?.length > 0 && <div><h2 className="text-xl font-semibold">Requirements</h2><ul className="mt-2 list-disc space-y-1 pl-5 text-gray-600">{job.requirements.map((item) => <li key={item}>{item}</li>)}</ul></div>}
+                {job.responsibilities?.length > 0 && <div><h2 className="text-xl font-semibold">Responsibilities</h2><ul className="mt-2 list-disc space-y-1 pl-5 text-gray-600">{job.responsibilities.map((item) => <li key={item}>{item}</li>)}</ul></div>}
+            </section>
+        </main>
     );
 
 }

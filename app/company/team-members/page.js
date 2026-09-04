@@ -118,7 +118,7 @@ export default function TeamMembersPage() {
 
                     href="/company/team-members/create"
 
-                    className="rounded-lg bg-indigo-600 px-5 py-3 text-white hover:bg-indigo-700"
+                    className="rounded-lg bg-red-600 px-5 py-3 text-white hover:bg-red-700"
 
                 >
 

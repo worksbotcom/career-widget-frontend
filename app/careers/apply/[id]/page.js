@@ -53,21 +53,23 @@ export default function ApplyJobPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (id && companyId) {
-            fetchJob();
+        if (!id) {
+            return;
         }
-    }, [id, companyId]);
 
-    const fetchJob = async () => {
-        try {
-            const res = await getPublishedJob(companyId, id);
-            setJob(res.data.data);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoading(false);
+        async function loadJob() {
+            try {
+                const res = await getPublishedJob(companyId || null, id);
+                setJob(res.data.data);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
         }
-    };
+
+        loadJob();
+    }, [id, companyId]);
 
     if (loading) {
         return (

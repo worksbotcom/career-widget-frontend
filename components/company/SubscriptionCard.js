@@ -145,7 +145,7 @@ export default function SubscriptionCard() {
 
                                 <button
                                     disabled={isCurrent}
-                                    className="mt-6 w-full rounded-lg bg-indigo-600 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500"
+                                    className="mt-6 w-full rounded-lg bg-red-600 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500"
                                 >
                                     {isCurrent ? "Current Plan" : "Upgrade"}
                                 </button>

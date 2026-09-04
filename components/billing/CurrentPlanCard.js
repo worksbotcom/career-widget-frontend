@@ -67,7 +67,7 @@ export default function CurrentPlanCard({ subscription }) {
             </div>
 
             <div className="flex flex-wrap gap-3 border-t border-gray-200 p-6">
-                <button className="rounded-lg bg-indigo-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700">
+                <button className="rounded-lg bg-red-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
                     Upgrade Plan
                 </button>
 

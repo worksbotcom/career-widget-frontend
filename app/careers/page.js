@@ -1,18 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useParams } from "next/navigation";
-
 import JobCard from "@/components/careers/JobCard";
 import JobFilters from "@/components/careers/JobFilters";
 
 import { getPublishedJobs } from "@/services/widget.service";
-import { getDepartments } from "@/services/department.service";
-import { getLocations } from "@/services/location.service";
 
 export default function CareersPage() {
-
-    const { companyId } = useParams();
 
     const [jobs, setJobs] = useState([]);
     const [departments, setDepartments] = useState([]);
@@ -28,53 +22,36 @@ export default function CareersPage() {
     });
 
     useEffect(() => {
-
-        if (companyId) {
-
-            fetchData();
-
-        }
-
-    }, [companyId]);
-
-    const fetchData = async () => {
-
-        try {
-
-            const jobsRes = await getPublishedJobs(companyId);
-
-            setJobs(jobsRes.data.data);
-
-            // Optional if these APIs are public
+        async function loadJobs() {
             try {
+                const jobsRes = await getPublishedJobs();
+                const publishedJobs = jobsRes.data.data || [];
+                setJobs(publishedJobs);
 
-                const departmentRes = await getDepartments();
-                setDepartments(departmentRes.data.data);
+                const departmentMap = new Map();
+                const locationMap = new Map();
 
-            } catch {}
+                publishedJobs.forEach((job) => {
+                    if (job.departmentId) {
+                        departmentMap.set(job.departmentId._id, job.departmentId);
+                    }
 
-            try {
+                    if (job.locationId) {
+                        locationMap.set(job.locationId._id, job.locationId);
+                    }
+                });
 
-                const locationRes = await getLocations();
-                setLocations(locationRes.data.data);
-
-            } catch {}
-
+                setDepartments([...departmentMap.values()]);
+                setLocations([...locationMap.values()]);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
         }
 
-        catch (error) {
-
-            console.error(error);
-
-        }
-
-        finally {
-
-            setLoading(false);
-
-        }
-
-    };
+        loadJobs();
+    }, []);
 
     const filteredJobs = useMemo(() => {
 

@@ -104,7 +104,7 @@ export default function SubscriptionForm({ initialData = {} }) {
                     value={form.description}
                     onChange={change}
                     placeholder="Add a short summary of the plan benefits"
-                    className="w-full rounded-lg border border-gray-300 px-3 py-3 text-sm text-gray-900 shadow-sm transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-3 text-sm text-gray-900 shadow-sm transition focus:border-red-500 focus:ring-2 focus:ring-red-100"
                 />
             </div>
 
@@ -184,7 +184,7 @@ export default function SubscriptionForm({ initialData = {} }) {
                             name="analytics"
                             checked={form.analytics}
                             onChange={change}
-                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-red-500"
                         />
                         Analytics
                     </label>
@@ -195,7 +195,7 @@ export default function SubscriptionForm({ initialData = {} }) {
                             name="apiAccess"
                             checked={form.apiAccess}
                             onChange={change}
-                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-red-500"
                         />
                         API Access
                     </label>
@@ -206,7 +206,7 @@ export default function SubscriptionForm({ initialData = {} }) {
                             name="prioritySupport"
                             checked={form.prioritySupport}
                             onChange={change}
-                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-red-500"
                         />
                         Priority Support
                     </label>
@@ -217,7 +217,7 @@ export default function SubscriptionForm({ initialData = {} }) {
                             name="customDomain"
                             checked={form.customDomain}
                             onChange={change}
-                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-red-500"
                         />
                         Custom Domain
                     </label>

@@ -112,7 +112,7 @@ export default function VerifySentPage() {
                         onChange={(e) => setEmail(e.target.value)}
                     />
 
-                    <Button
+                        <Button
                         type="submit"
                         loading={loading}
                         disabled={!canResend || loading}

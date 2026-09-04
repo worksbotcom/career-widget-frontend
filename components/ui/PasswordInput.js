@@ -39,7 +39,7 @@ const PasswordInput = forwardRef(function PasswordInput(
 
                     {...props}
 
-                    className={`w-full rounded-lg border border-gray-300 px-4 py-3 pr-12 outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 ${className}`}
+                    className={`w-full rounded-lg border border-gray-300 px-4 py-3 pr-12 outline-none focus:border-red-600 focus:ring-2 focus:ring-red-200 ${className}`}
 
                 />
 

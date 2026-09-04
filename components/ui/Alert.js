@@ -25,7 +25,7 @@ export default function Alert({
         error: {
             icon: <XCircle size={20} />,
             className:
-                "bg-red-50 border-red-300 text-red-700"
+                "bg-blue-50 border-blue-300 text-blue-700"
         },
 
         warning: {
@@ -37,7 +37,7 @@ export default function Alert({
         info: {
             icon: <Info size={20} />,
             className:
-                "bg-blue-50 border-blue-300 text-blue-700"
+                "bg-red-50 border-red-300 text-red-700"
         }
 
     };

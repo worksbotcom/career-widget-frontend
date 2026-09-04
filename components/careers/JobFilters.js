@@ -53,7 +53,7 @@ export default function JobFilters({
 
                         onChange={handleChange}
 
-                        className="w-full rounded-lg border py-2 pl-10 pr-3 focus:border-indigo-500 focus:outline-none"
+                        className="w-full rounded-lg border py-2 pl-10 pr-3 focus:border-red-500 focus:outline-none"
 
                     />
 

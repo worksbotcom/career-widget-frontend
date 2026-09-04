@@ -232,14 +232,14 @@
 
                     .cw-filter-btn {
                         width: 100%;
-                        background: #4f46e5;
+                        background: #ef4444;
                         color: #fff;
                         margin-top: 16px;
                         font-weight: 600;
                     }
 
                     .cw-filter-btn:hover {
-                        background: #4338ca;
+                        background: #dc2626;
                     }
 
                     .cw-results-panel {
@@ -367,13 +367,13 @@
                     }
 
                     .cw-btn {
-                        background: #4f46e5;
+                        background: #ef4444;
                         color: #fff;
                         font-weight: 600;
                     }
 
                     .cw-btn:hover {
-                        background: #4338ca;
+                        background: #dc2626;
                     }
 
                     .cw-pagination {

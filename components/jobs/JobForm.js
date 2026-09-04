@@ -21,12 +21,12 @@ import { getLocations } from "@/services/location.service";
 // Shared classes so <select> lines up visually with the <Input /> component.
 const selectClass =
     "w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 " +
-    "focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900 " +
+    "focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-200 " +
     "disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-400";
 
 const textareaClass =
     "w-full rounded-lg border border-gray-300 p-3 text-sm text-gray-900 " +
-    "placeholder:text-gray-400 focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900";
+    "placeholder:text-gray-400 focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-200";
 
 const labelClass = "mb-1.5 block text-sm font-medium text-gray-700";
 

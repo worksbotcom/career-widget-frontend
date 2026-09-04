@@ -19,13 +19,13 @@ export default function AuthLayout({
                 <div className="hidden lg:flex items-center justify-center bg-gradient-to-br from-indigo-700 via-indigo-600 to-blue-600 p-12">
 
                     <div className="max-w-md text-white">
-
+{/* 
                         <Image
                             src="/logo.png"
                             alt="Career Widget"
                             width={70}
                             height={70}
-                        />
+                        /> */}
 
                         <h1 className="mt-8 text-5xl font-bold leading-tight">
 

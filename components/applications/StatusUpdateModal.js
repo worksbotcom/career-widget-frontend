@@ -6,11 +6,11 @@ import { X, RefreshCcw, Loader2 } from "lucide-react";
 // Shared with JobForm so this modal's inputs look identical to the rest of the app.
 const selectClass =
     "w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 " +
-    "focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900";
+    "focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-200";
 
 const textareaClass =
     "w-full rounded-lg border border-gray-300 p-3 text-sm text-gray-900 " +
-    "placeholder:text-gray-400 focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900";
+    "placeholder:text-gray-400 focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-200";
 
 const labelClass = "mb-1.5 block text-sm font-medium text-gray-700";
 
@@ -112,7 +112,7 @@ export default function StatusUpdateModal({ application, onClose, onSave }) {
                         <button
                             type="submit"
                             disabled={saving}
-                            className="flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
+                            className="flex items-center gap-2 rounded-lg bg-red-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
                         >
                             {saving && <Loader2 size={16} className="animate-spin" />}
                             {saving ? "Saving…" : "Save Changes"}

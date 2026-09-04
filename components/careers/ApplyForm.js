@@ -47,7 +47,7 @@ function Field({ label, error, span2, children }) {
 }
 
 const inputClass = (hasError) =>
-    `w-full rounded-lg border p-3 text-sm outline-none transition focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ${
+    `w-full rounded-lg border p-3 text-sm outline-none transition focus:border-red-500 focus:ring-1 focus:ring-red-500 ${
         hasError ? "border-red-400" : "border-gray-300"
     }`;
 
@@ -246,7 +246,7 @@ export default function ApplyForm({ jobId }) {
             <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 py-3 font-semibold text-white transition hover:bg-indigo-700 disabled:opacity-50"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 py-3 font-semibold text-white transition hover:bg-red-700 disabled:opacity-50"
             >
                 {loading && <Loader2 size={16} className="animate-spin" />}
                 {loading ? "Submitting..." : "Submit application"}

@@ -9,8 +9,8 @@ function itemClassName({ collapsed, active }) {
         collapsed ? "justify-center" : ""
     } ${
         active
-            ? "bg-indigo-600 text-white shadow-sm"
-            : "text-gray-600 hover:bg-indigo-50 hover:text-indigo-600"
+            ? "bg-red-600 text-white shadow-sm"
+            : "text-gray-600 hover:bg-red-50 hover:text-red-600"
     }`;
 }
 

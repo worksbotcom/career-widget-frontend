@@ -39,7 +39,7 @@ export default function Sidebar() {
                             href={menu.href}
                             className={`flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition ${
                                 isActive
-                                    ? "bg-indigo-600 text-white"
+                                    ? "bg-red-600 text-white"
                                     : "text-gray-700 hover:bg-gray-50"
                             }`}
                         >

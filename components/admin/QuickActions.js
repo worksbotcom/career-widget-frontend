@@ -43,7 +43,7 @@ export default function QuickActions() {
 
                             href={action.href}
 
-                            className="block rounded-lg bg-indigo-600 text-white px-4 py-3 hover:bg-indigo-700 transition"
+                            className="block rounded-lg bg-red-600 text-white px-4 py-3 hover:bg-red-700 transition"
 
                         >
 
