@@ -10,6 +10,8 @@ import ProfileCompletion from "@/components/company/dashboard/ProfileCompletion"
 import UsageCard from "@/components/company/dashboard/UsageCard";
 import Alert from "@/components/ui/Alert";
 
+export const dynamic = "force-dynamic";
+
 async function getCompanyProfile() {
     const cookieStore = await cookies();
     const token = cookieStore.get("accessToken")?.value;

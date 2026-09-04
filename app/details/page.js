@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
     Briefcase,
@@ -104,7 +104,7 @@ function formatSalary(job) {
     return "Not disclosed";
 }
 
-export default function JobDetailsPage() {
+function JobDetailsContent() {
     const searchParams = useSearchParams();
     const companyId = searchParams.get("companyId");
     const jobId = searchParams.get("jobId");
@@ -365,5 +365,20 @@ export default function JobDetailsPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function JobDetailsPage() {
+    return (
+        <Suspense
+            fallback={
+                <div className="flex min-h-[300px] items-center justify-center gap-2 text-sm text-gray-500">
+                    <Loader2 size={16} className="animate-spin" />
+                    Loading job details…
+                </div>
+            }
+        >
+            <JobDetailsContent />
+        </Suspense>
     );
 }
