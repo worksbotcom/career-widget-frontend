@@ -5,8 +5,10 @@
     // Config & constants
     // ------------------------------------------------------------------
 
-    const DEFAULT_API_BASE_URL = "http://localhost:5000";
-    const DEFAULT_APP_BASE_URL = "http://localhost:3000";
+    // const DEFAULT_API_BASE_URL = "http://localhost:5000";
+    // const DEFAULT_APP_BASE_URL = "http://localhost:3000";
+    const DEFAULT_API_BASE_URL = "https://career-widget-backend.vercel.app";
+    const DEFAULT_APP_BASE_URL = "https://career-widget-frontend.vercel.app";
     const JOBS_PER_PAGE = 5;
 
     // ------------------------------------------------------------------
